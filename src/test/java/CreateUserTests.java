@@ -34,16 +34,5 @@ public class CreateUserTests extends BaseTest {
         response.then().statusCode(403);
         response.then().assertThat().body("message", equalTo("Email, password and name are required fields"));
     }
-
-    @After
-    public void cleanUp() {
-
-        Response response = userClient.checkLoginUserApi(user);
-        bearerToken = response.then().extract().jsonPath().getString("accessToken");
-
-        if (bearerToken != null) {
-            userClient.checkDeleteUserWithAuthApi(bearerToken);
-        }
-    }
 }
 

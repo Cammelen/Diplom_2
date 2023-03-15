@@ -34,15 +34,4 @@ public class GetOrdersTests extends BaseTest {
         response.then().statusCode(401);
         response.then().body("message", equalTo("You should be authorised"));
     }
-
-    @After
-    public void cleanUp() {
-
-        Response response = userClient.checkLoginUserApi(user);
-        bearerToken = response.then().extract().jsonPath().getString("accessToken");
-
-        if (bearerToken != null) {
-            userClient.checkDeleteUserWithAuthApi(bearerToken);
-        }
-    }
 }

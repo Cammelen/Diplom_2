@@ -54,15 +54,4 @@ public class CreateOrderTests extends BaseTest {
         Response response = ordersClient.checkCreateOrderApi(new Ingredients(ingredients));
         response.then().statusCode(500);
     }
-
-    @After
-    public void cleanUp() {
-
-        Response response = userClient.checkLoginUserApi(user);
-        bearerToken = response.then().extract().jsonPath().getString("accessToken");
-
-        if (bearerToken != null) {
-            userClient.checkDeleteUserWithAuthApi(bearerToken);
-        }
-    }
 }

@@ -1,7 +1,9 @@
 import api.client.OrdersClient;
 import api.client.UserClient;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import model.User;
+import org.junit.After;
 import org.junit.Before;
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,6 +13,17 @@ public class BaseTest {
     @Before
     public void setUp() {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
+    }
+
+    @After
+    public void cleanUp() {
+
+        Response response = userClient.checkLoginUserApi(user);
+        bearerToken = response.then().extract().jsonPath().getString("accessToken");
+
+        if (bearerToken != null) {
+            userClient.checkDeleteUserWithAuthApi(bearerToken);
+        }
     }
 
     UserClient userClient = new UserClient();
