@@ -1,7 +1,7 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import org.junit.After;
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 
 @DisplayName("Логин пользователя")
@@ -27,10 +27,3 @@ public class LoginTests extends BaseTest {
         response.then().body("message", equalTo("email or password are incorrect"));
     }
 }
-
-
-
-
-
-
-

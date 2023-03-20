@@ -1,13 +1,10 @@
 package api.client;
-
 import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.given;
 
 public class BaseApiClient {
 
     private String JSON = "application/json";
-    private String bearerToken;
 
     protected Response doPostRequest(String uri, Object body) {
         return given()
@@ -50,7 +47,4 @@ public class BaseApiClient {
                 .header("Content-Type", JSON)
                 .get(uri);
     }
-
-
-
 }

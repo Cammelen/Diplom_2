@@ -1,6 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import org.junit.After;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -35,4 +34,3 @@ public class CreateUserTests extends BaseTest {
         response.then().assertThat().body("message", equalTo("Email, password and name are required fields"));
     }
 }
-

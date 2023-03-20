@@ -4,7 +4,7 @@ import io.restassured.response.Response;
 
 public class OrdersClient extends BaseApiClient {
 
-    final String CREATE_ORDER = "/api/orders";
+    private final String CREATE_ORDER = "/api/orders";
 
     @Step("Создание заказа")
     public Response checkCreateOrderApi(Object body) {

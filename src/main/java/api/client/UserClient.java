@@ -4,9 +4,9 @@ import io.restassured.response.Response;
 
 public class UserClient extends BaseApiClient {
 
-    final String REGISTER_USER = "/api/auth/register";
-    final String LOGIN_USER = "/api/auth/login";
-    final String CHANGE_USER = "/api/auth/user";
+    private final String REGISTER_USER = "/api/auth/register";
+    private final String LOGIN_USER = "/api/auth/login";
+    private final String CHANGE_USER = "/api/auth/user";
 
     @Step("Создание пользователя")
     public Response checkCreateUserApi(Object body) {

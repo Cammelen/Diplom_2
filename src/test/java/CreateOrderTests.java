@@ -1,7 +1,6 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Ingredients;
-import org.junit.After;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.equalTo;
 
